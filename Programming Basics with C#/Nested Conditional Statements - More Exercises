@@ -1,0 +1,105 @@
+using System;
+
+namespace Odd_Even_Position_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numOfJuniorCyclists = int.Parse(Console.ReadLine());
+            int numOfSeniorCyclists = int.Parse(Console.ReadLine());
+            string typeOfTrack = Console.ReadLine();
+
+            double sum = 0;
+
+            int people = numOfJuniorCyclists + numOfSeniorCyclists;
+
+            if (typeOfTrack == "trail")
+            {
+                sum = (5.50 * numOfJuniorCyclists) + (7 * numOfSeniorCyclists);
+            }
+            else if (typeOfTrack == "cross-country")
+            {
+                sum = (8 * numOfJuniorCyclists) + (9.50 * numOfSeniorCyclists);
+
+                if (people >= 50)
+                {
+                    sum -= sum * 0.25; 
+                }
+            }
+            else if (typeOfTrack == "downhill")
+            {
+                sum = (12.25 * numOfJuniorCyclists) + (13.75 * numOfSeniorCyclists);
+            }
+            else if (typeOfTrack == "road")
+            {
+                sum = (20 * numOfJuniorCyclists) + (21.50 * numOfSeniorCyclists);
+            }
+
+            sum -= sum * 0.05;
+
+
+            Console.WriteLine($"{sum:F2}");
+
+
+        }
+    }
+}
+
+using System;
+
+namespace Odd_Even_Position_04
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double budget = double.Parse(Console.ReadLine());
+            string category = Console.ReadLine();
+            int numOfPeopleInGroup = int.Parse(Console.ReadLine());
+            double ticket = 0;
+
+            if (numOfPeopleInGroup >= 1 && numOfPeopleInGroup <= 4)
+            {
+                budget -= budget * 0.75;
+            }
+            else if (numOfPeopleInGroup >= 5 && numOfPeopleInGroup <= 9)
+            {
+                budget -= budget * 0.60;
+            }
+            else if (numOfPeopleInGroup >= 10 && numOfPeopleInGroup <= 24)
+            {
+                budget -= budget * 0.50;
+            }
+            else if (numOfPeopleInGroup >= 25 && numOfPeopleInGroup <= 49)
+            {
+                budget -= budget * 0.40;
+            }
+            else if (numOfPeopleInGroup >= 50)
+            {
+                budget -= budget * 0.25;
+            }
+
+            if (category == "VIP")
+            {
+                ticket = numOfPeopleInGroup * 499.99;
+            }
+            else if (category == "Normal")
+            {
+                ticket = numOfPeopleInGroup * 249.99;
+            }
+
+            double diff = Math.Abs(budget - ticket);
+
+            if (budget > ticket)
+            {
+                Console.WriteLine($"Yes! You have {diff:F2} leva left.");
+            }
+            else
+            {
+                Console.WriteLine($"Not enough money! You need {diff:F2} leva.");
+            }
+        }
+    }
+}
+
