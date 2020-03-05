@@ -1,0 +1,62 @@
+using System;
+
+namespace _06_Journey
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string month = Console.ReadLine();
+            int nightNum = int.Parse(Console.ReadLine());
+
+            double nightInStudio = 0;
+            double nightInApartment = 0;
+
+            if (month == "May" || month == "October")
+            {
+                nightInStudio = nightNum * 50;
+                nightInApartment = 65 * nightNum;
+
+                if (nightNum > 7 && nightNum <= 14)
+                {
+                    nightInStudio -= nightInStudio * 0.05;
+                }
+                else if (nightNum > 14)
+                {
+                    nightInStudio -= nightInStudio * 0.30;
+                    nightInApartment -= nightInApartment * 0.10;
+                }
+            }
+            else if (month == "June" || month == "September")
+            {
+                nightInStudio = 75.20 * nightNum;
+                nightInApartment = 68.70 * nightNum;
+
+                if (nightNum > 14)
+                {
+                    nightInStudio -= nightInStudio * 0.20;
+                    nightInApartment -= nightInApartment * 0.10;
+                }
+            }
+            else if (month == "July" || month == "August")
+            {
+                nightInStudio = 76 * nightNum;
+                nightInApartment = 77 * nightNum;
+
+                if (nightNum > 14)
+                {
+                    nightInApartment -= nightInApartment * 0.10;
+                }
+            }
+            else
+            {
+                Console.WriteLine("erorr");
+            }
+
+            Console.WriteLine($"Apartment: {nightInApartment:F2} lv.");
+            Console.WriteLine($"Studio: {nightInStudio:F2} lv.");
+
+
+        }
+    }
+}
