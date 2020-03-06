@@ -1,0 +1,173 @@
+//1.
+string name = Console.ReadLine();
+
+            while (name != "Stop")
+            {
+                name = Console.ReadLine();
+
+            }
+//2.
+string name = Console.ReadLine();
+            string password = Console.ReadLine();
+
+            string input = Console.ReadLine();
+
+            while (input != password)
+            {
+                input = Console.ReadLine();
+            }
+            Console.WriteLine($"Welcome {name}!");
+
+//3.
+string num = Console.ReadLine();
+
+            int sum = 0;
+            
+            while (num != "Stop")
+            {
+                int current = int.Parse(num);
+                sum += current;
+                num = Console.ReadLine();
+            }
+            Console.WriteLine(sum);
+
+//4.
+int n = int.Parse(Console.ReadLine());
+
+            int k = 1;
+
+            while (k <= n)
+            {
+                Console.WriteLine(k);
+                k = k * 2 + 1;
+            }
+
+//5.
+int n = int.Parse(Console.ReadLine());
+            int counter = 0;
+            double total = 0;
+
+            while (counter < n)
+            {
+                double sum = double.Parse(Console.ReadLine());
+                if (sum < 0)
+                {
+                    Console.WriteLine("Invalid operation!");
+                    break;
+                }
+                total += sum;
+                Console.WriteLine($"Increase : {sum:F2}");
+                counter++;
+            }
+            Console.WriteLine($"Total: {total:F2}");
+
+//6.
+int n = int.Parse(Console.ReadLine());
+            int counter = 0;
+            int max = int.MinValue;
+
+            while (counter < n)
+            {
+                int num = int.Parse(Console.ReadLine());
+                counter++;
+
+                if (max < num)
+                {
+                    max = num;
+                }
+            }
+            Console.WriteLine(max);
+
+//7.
+int n = int.Parse(Console.ReadLine());
+            int counter = 0;
+            int min = int.MaxValue;
+
+            while (counter < n)
+            {
+                int num = int.Parse(Console.ReadLine());
+                counter++;
+
+                if (min < num)
+                {
+                    min = num;
+                }
+            }
+            Console.WriteLine(max);
+//8.
+ string name = Console.ReadLine();
+            int n = 12;
+            int counter = 0;
+            double sum = 0;
+
+            while (counter < n)
+            {
+                double grade = double.Parse(Console.ReadLine());
+                counter++;
+                sum += grade;
+
+                if (grade >= 4)
+                {
+                    continue;
+                }
+            }
+            double average = sum / counter;
+            Console.WriteLine($"{name} graduated. Average grade: {average:F2}");
+
+//9.
+string name = Console.ReadLine();
+            int n = 12;
+            int counter = 0;
+            double sum = 0;
+
+            while (counter < n)
+            {
+                double grade = double.Parse(Console.ReadLine());
+                counter++;
+                sum += grade;
+
+                if (grade >= 4)
+                {
+                    continue;
+                }
+                if (grade < 4)
+                {
+                    double gradeNew = double.Parse(Console.ReadLine());
+                    if (gradeNew < 4)
+                    {
+                        Console.WriteLine($"{name} has been excluded at {counter} grade");
+                        break;
+                    }
+                }
+            }
+            double average = sum / counter;
+            Console.WriteLine($"{name} graduated. Average grade: {average:F2}");
+
+//10.
+int widthFreePleace = int.Parse(Console.ReadLine());
+            int lengthFreePleace = int.Parse(Console.ReadLine());
+            int hightFreePleace = int.Parse(Console.ReadLine());
+
+            int freePleace = widthFreePleace * lengthFreePleace * hightFreePleace;
+
+            int sum = 0;
+
+            string command = Console.ReadLine();
+            while (command != "Done")
+            {
+                int box = int.Parse(command);
+                freePleace -= box;
+
+                if (freePleace < 0)
+                {
+                    Console.WriteLine($"No more free space! You need {Math.Abs(freePleace - sum)} Cubic meters more.");
+                    break;
+                }
+
+                command = Console.ReadLine();
+            }
+
+            if (freePleace > 0)
+            {
+                Console.WriteLine($"{Math.Abs(freePleace - sum)} Cubic meters left.");
+            }
