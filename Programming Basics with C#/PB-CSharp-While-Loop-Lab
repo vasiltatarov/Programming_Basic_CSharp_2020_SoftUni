@@ -110,6 +110,12 @@ int n = int.Parse(Console.ReadLine());
                 {
                     continue;
                 }
+                if (grade < 4)
+                {
+                    grade = double.Parse(Console.ReadLine();
+                    sum += grade;
+                    continue;
+                }
             }
             double average = sum / counter;
             Console.WriteLine($"{name} graduated. Average grade: {average:F2}");
@@ -132,16 +138,20 @@ string name = Console.ReadLine();
                 }
                 if (grade < 4)
                 {
-                    double gradeNew = double.Parse(Console.ReadLine());
-                    if (gradeNew < 4)
+                    grade = double.Parse(Console.ReadLine());
+                    sum += grade;
+                    if (grade < 4)
                     {
                         Console.WriteLine($"{name} has been excluded at {counter} grade");
                         break;
                     }
                 }
             }
-            double average = sum / counter;
-            Console.WriteLine($"{name} graduated. Average grade: {average:F2}");
+            if (counter == n)
+            {
+                double average = sum / counter;
+                Console.WriteLine($"{name} graduated. Average grade: {average:F2}");
+            }
 
 //10.
 int widthFreePleace = int.Parse(Console.ReadLine());
