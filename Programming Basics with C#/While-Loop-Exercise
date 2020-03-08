@@ -1,0 +1,192 @@
+//1.
+using System;
+
+namespace test
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string book = Console.ReadLine();
+            int capacity = int.Parse(Console.ReadLine());
+            int sum = 0;
+            
+            while (capacity > 0)
+            {
+                string search = Console.ReadLine();
+                if (search == book)
+                {
+                    Console.WriteLine($"You checked {sum} books and found it.");
+                    break;
+                }
+
+                else
+                {
+                    sum++;
+                    capacity--;
+                }
+            }
+
+            if (capacity == 0)
+            {
+                Console.WriteLine("The book you search is not here!");
+                Console.WriteLine($"You checked {sum} books.");
+            }
+
+
+
+        }
+    }
+}
+
+//2.
+using System;
+
+namespace Odd_Even_Position_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int numBadGrade = int.Parse(Console.ReadLine());
+            double average = 0;
+            int taskNum = 0;
+            int badGrade = 0;
+            string lastTask = "";
+
+            while (badGrade < numBadGrade)
+            {
+                string newTask = Console.ReadLine();
+                if (newTask == "Enough")
+                {
+                    average /= taskNum;
+                    Console.WriteLine($"Average score: {average:F2}");
+                    Console.WriteLine($"Number of problems: {taskNum}");
+                    Console.WriteLine($"Last problem: {lastTask}");
+                    break;
+                }
+
+                taskNum++;
+                lastTask = newTask;
+                int grade = int.Parse(Console.ReadLine());
+                average += grade;
+
+                if (grade <= 4)
+                {
+                    badGrade++;
+                    if (badGrade == numBadGrade)
+                    {
+                        Console.WriteLine($"You need a break, {badGrade} poor grades.");
+                        break;
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+
+
+//5.
+using System;
+
+namespace Odd_Even_Position_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double cash = double.Parse(Console.ReadLine());
+            double cashInSt = Math.Floor(cash * 100);
+            int returnCash = 0;
+
+            while (cashInSt > 0)
+            {
+                if (cashInSt >= 200)
+                {
+                    cashInSt -= 200;
+                    returnCash++;
+                }
+                else if (cashInSt >= 100)
+                {
+                    cashInSt -= 100;
+                    returnCash++;
+                }
+                else if (cashInSt >= 50)
+                {
+                    cashInSt -= 50;
+                    returnCash++;
+                }
+                else if (cashInSt >= 20)
+                {
+                    cashInSt -= 20;
+                    returnCash++;
+                }
+                else if (cashInSt >= 10)
+                {
+                    cashInSt -= 10;
+                    returnCash++;
+                }
+                else if (cashInSt >= 5)
+                {
+                    cashInSt -= 5;
+                    returnCash++;
+                }
+                else if (cashInSt >= 2)
+                {
+                    cashInSt -= 2;
+                    returnCash++;
+                }
+                else if (cashInSt >= 1)
+                {
+                    cashInSt -= 1;
+                    returnCash++;
+                }
+            }
+            Console.WriteLine(returnCash);
+
+
+        }
+    }
+}
+
+//6.
+using System;
+
+namespace Odd_Even_Position_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int widthOfCake = int.Parse(Console.ReadLine());
+            int lengthOfCake = int.Parse(Console.ReadLine());
+
+            int pieces = widthOfCake * lengthOfCake;
+
+            string command = Console.ReadLine();
+
+            while (command != "STOP")
+            {
+                
+                int numOfPieces = int.Parse(command);
+                pieces -= numOfPieces;
+
+
+                if (pieces <= 0)
+                {
+                    Console.WriteLine($"No more cake left! You need {Math.Abs(pieces)} pieces more.");
+                    break;
+                }
+
+                command = Console.ReadLine();
+            }
+            if (command == "STOP")
+            {
+                Console.WriteLine($"{pieces} pieces are left.");
+            }
+
+        }
+    }
+}
