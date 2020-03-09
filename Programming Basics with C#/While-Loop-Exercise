@@ -86,7 +86,107 @@ namespace Odd_Even_Position_03
     }
 }
 
+//3.
+using System;
 
+namespace Odd_Even_Position_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double moneyForHoliday = double.Parse(Console.ReadLine());
+            double availableMoney = double.Parse(Console.ReadLine());
+            int countDays = 0;
+            int spendingCounter = 0;
+            
+            while (availableMoney <= moneyForHoliday)
+            {
+                string typeOfAction = Console.ReadLine();
+                double moneyWhenSheSpendOrSave = double.Parse(Console.ReadLine());
+
+                if (typeOfAction == "spend")
+                {
+                    if (moneyWhenSheSpendOrSave > availableMoney)
+                    {
+                        availableMoney = 0;
+                        countDays++;
+                        spendingCounter++;
+                    }
+                    else
+                    {
+                        availableMoney -= moneyWhenSheSpendOrSave;
+                        countDays++;
+                        spendingCounter++;
+                    }
+                }
+                else if (typeOfAction == "save")
+                {
+                    availableMoney += moneyWhenSheSpendOrSave;
+                    countDays++;
+                    spendingCounter = 0;
+                }
+
+                if (spendingCounter == 5)
+                {
+                    Console.WriteLine("You can't save the money.");
+                    Console.WriteLine($"{countDays}");
+                    break;
+                }
+
+                if (availableMoney >= moneyForHoliday)
+                {
+                    Console.WriteLine($"You saved the money for {countDays} days.");
+                    break;
+                }
+            }
+        }
+    }
+}
+
+//4.
+using System;
+
+namespace Otest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sumSteps = 0;
+
+            string command = Console.ReadLine();
+            while (command != "Going home")
+            {
+                int stepsWhenSheGoOut = int.Parse(command);
+                sumSteps += stepsWhenSheGoOut;
+
+                if (sumSteps >= 10000)
+                {
+                    Console.WriteLine("Goal reached! Good job!");
+                    break;
+                }
+
+                command = Console.ReadLine();
+            }
+
+            if (command == "Going home")
+            {
+                int stepsToHome = int.Parse(Console.ReadLine());
+                sumSteps += stepsToHome;
+
+                if (sumSteps >= 10000)
+                {
+                    Console.WriteLine("Goal reached! Good job!");
+                }
+                else
+                {
+                    Console.WriteLine($"{10000 - sumSteps} more steps to reach goal.");
+                }
+            }
+        }
+    }
+}
 
 //5.
 using System;
