@@ -1,0 +1,255 @@
+//1.
+using System;
+
+namespace Otest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double incomeMonthDesi = double.Parse(Console.ReadLine());
+            int countMonthWhichDesiSaveMoney = int.Parse(Console.ReadLine());
+            double personalExpenses = double.Parse(Console.ReadLine());
+            double uninspectedCosts = incomeMonthDesi * 0.30;
+
+            double saveMoneyOneMonth = incomeMonthDesi - (personalExpenses + uninspectedCosts);
+            double allSaveMoney = saveMoneyOneMonth * (countMonthWhichDesiSaveMoney * 1.0);
+            double percentageMoney = Math.Abs(saveMoneyOneMonth / incomeMonthDesi * 100);
+
+            Console.WriteLine($"She can save {percentageMoney:F2}%");
+            Console.WriteLine($"{allSaveMoney:F2}");
+
+
+        }
+    }
+}
+
+//2.
+using System;
+
+namespace Otest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int dayOfReserve = int.Parse(Console.ReadLine());
+            int monthOfReserve = int.Parse(Console.ReadLine());
+            int dayOfAccommodation = int.Parse(Console.ReadLine());
+            int monthOfAccommodation = int.Parse(Console.ReadLine());
+            int dayOfLeave = int.Parse(Console.ReadLine());
+            int monthOfLeave = int.Parse(Console.ReadLine());
+
+            int diff = dayOfAccommodation - dayOfReserve;
+
+            int dayInHotel = dayOfLeave - dayOfAccommodation;
+            double cost = 0;
+
+            if (diff >= 10 && monthOfAccommodation == monthOfReserve)
+            {
+                cost = dayInHotel * 25;
+            }
+            else if (monthOfReserve < monthOfAccommodation)
+            {
+                cost = dayInHotel * 25;
+                cost *= 0.80;
+            }
+            else
+            {
+                cost = dayInHotel * 30;
+            }
+
+
+            Console.WriteLine($"Your stay from {dayOfAccommodation}/{monthOfAccommodation} to {dayOfLeave}/{monthOfLeave} will cost {cost:F2}"
+);
+
+        }
+    }
+}
+
+//3.
+using System;
+
+namespace Otest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int widthOfCase = int.Parse(Console.ReadLine());
+            int lengthOfCase = int.Parse(Console.ReadLine());
+            int heightOfCase = int.Parse(Console.ReadLine());
+            string priorityOrNot = Console.ReadLine();
+
+            int sumForSizeOfCase = 0;
+            int sizeOfCase = widthOfCase * lengthOfCase * heightOfCase;
+
+            if (priorityOrNot == "true")
+            {
+                if (sizeOfCase > 100 && sizeOfCase <= 200)
+                {
+                    sumForSizeOfCase += 10;
+                }
+                else if (sizeOfCase > 200 && sizeOfCase <= 300)
+                {
+                    sumForSizeOfCase += 20;
+                }
+            }
+            else if (priorityOrNot == "false")
+            {
+                if (sizeOfCase > 50 && sizeOfCase <= 100)
+                {
+                    sumForSizeOfCase += 25;
+                }
+                else if (sizeOfCase > 100 && sizeOfCase <= 200)
+                {
+                    sumForSizeOfCase += 50;
+                }
+                else if (sizeOfCase > 200 && sizeOfCase <= 300)
+                {
+                    sumForSizeOfCase += 100;
+                }
+            }
+            else
+            {
+                sumForSizeOfCase = 0;
+            }
+
+            Console.WriteLine($"Luggage tax: {sumForSizeOfCase:F2}");
+        }
+    }
+}
+
+//4.
+using System;
+
+namespace Otest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int min = int.MaxValue;
+            string bestTicketNumber = "";
+            double bestPrice = 0;
+
+            string ticketNumber = Console.ReadLine();
+            while (ticketNumber != "End")
+            {
+                double price = double.Parse(Console.ReadLine());
+                int minutesStay = int.Parse(Console.ReadLine());
+
+                price *= 1.96;
+
+                if (min > minutesStay)
+                {
+                    min = minutesStay;
+                    bestTicketNumber = ticketNumber;
+                    bestPrice = price;
+                }
+
+
+                ticketNumber = Console.ReadLine();
+
+                
+            }
+            Console.WriteLine($"Ticket found for flight {bestTicketNumber} costs {bestPrice:F2} leva with {min / 60}h {min % 60}m stay");
+
+        }
+    }
+}
+//5.
+using System;
+
+namespace Otest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int countTicketDesiBuy = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= countTicketDesiBuy; i++)
+            {
+                string ticketNumber = Console.ReadLine();
+
+                int lengthTicketNumber = ticketNumber.Length;
+
+                string seat = "";
+
+                if (lengthTicketNumber == 4)
+                {
+                    char firstChar = ticketNumber[0];
+                    if (firstChar >= 'A' && firstChar <= 'Z')
+                    {
+                        seat += firstChar;
+                    }
+                    else 
+                    {
+                        seat += ticketNumber[3];
+                    }
+                    seat += ticketNumber[1];
+                    seat += ticketNumber[2];
+                }
+                else if (lengthTicketNumber == 5 || lengthTicketNumber == 6)
+                {
+                    seat += ticketNumber[0];
+                    seat += (int)ticketNumber[1];
+                }
+
+                Console.WriteLine($"Seat decoded: {seat}");
+            }
+
+        }
+    }
+}
+
+//6.
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int daysOfTrip = int.Parse(Console.ReadLine());
+            double moneyLeft = 0.0;
+            for (int i = 0; i < daysOfTrip; i++)
+            {
+                double dayLimit = 60 + moneyLeft;
+                moneyLeft = 0;
+                string input = Console.ReadLine();
+                int products = 0;
+                while ("Day over" != input)
+                {
+                    double price = double.Parse(input);
+                    if (dayLimit - price >= 0)
+                    {
+                        dayLimit -= price;
+                        products++;
+                    }
+                    else
+                    {
+                        input = Console.ReadLine();
+                        continue;
+                    }
+                    if (dayLimit == 0)
+                    {
+                        break;
+                    }
+                    input = Console.ReadLine();
+                }
+                if ("Day over" == input)
+                {
+                    moneyLeft = Math.Abs(moneyLeft - dayLimit);
+                    Console.WriteLine($"Money left from today: {moneyLeft:F2}. You've bought {products} products.");
+                }
+                else
+                {
+                    Console.WriteLine($"Daily limit exceeded! You've bought {products} products.");
+                }
+            }
+        }
+    }
+}
