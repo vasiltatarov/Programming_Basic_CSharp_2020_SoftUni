@@ -253,3 +253,88 @@ namespace P06_TripExpenses
         }
     }
 }
+
+//7.
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+
+            for (int hours = 0; hours < 24; hours++)
+            {
+                for (int minutes = 0; minutes < 60; minutes++)
+                {
+                    Console.WriteLine($"{hours}:{minutes}");
+                }
+            }
+
+
+
+            
+
+        }
+    }
+}
+
+//8.
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int result = 0;
+
+            for (int x = 1; x <= 10; x++)
+            {
+                for (int y = 1; y <= 10; y++)
+                {
+                    result = x * y;
+                    Console.WriteLine($"{x} * {y} = {result}");
+                }
+            }
+
+            
+
+        }
+    }
+}
+
+//9.
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int counter = 0;
+
+            for (int x1 = 0; x1 <= n; x1++)
+            {
+                for (int x2 = 0; x2 <= n; x2++)
+                {
+                    for (int x3 = 0; x3 <= n; x3++)
+                    {
+                        int sum = x1 + x2 + x3;
+                        if (sum == n)
+                        {
+                            counter++;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(counter);
+
+        }
+    }
+}
+
