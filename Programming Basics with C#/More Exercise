@@ -338,3 +338,180 @@ namespace P06_TripExpenses
     }
 }
 
+//10.
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int firstNum = int.Parse(Console.ReadLine());
+            int secondNum = int.Parse(Console.ReadLine());
+            int magicNum = int.Parse(Console.ReadLine());
+            int sum = 0;
+            int counter = 0;
+
+            for (int i = firstNum; i <= secondNum; i++)
+            {
+                for (int i1 = firstNum; i1 <= secondNum; i1++)
+                {
+                    counter++;
+                    sum = i + i1;
+                    if (sum == magicNum)
+                    {
+                        Console.WriteLine($"Combination N:{counter} ({firstNum} + {secondNum} = {magicNum})");
+                        return;
+                    }
+                }
+            }
+
+            Console.WriteLine($"{counter} combinations - neither equals {magicNum}");
+
+        }
+    }
+}
+
+//11.
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int allMoney = 0;
+
+            string destination = Console.ReadLine();
+            while (destination != "End")
+            {
+                int budget = int.Parse(Console.ReadLine());
+
+                int saveMoney = int.Parse(Console.ReadLine());
+                while (true)
+                {
+                    allMoney += saveMoney;
+                    
+                    if (allMoney >= budget)
+                    {
+                        Console.WriteLine($"Going to {destination}!");
+                        break;
+                    }
+
+                    saveMoney = int.Parse(Console.ReadLine());
+                }
+
+                allMoney = 0;
+                destination = Console.ReadLine();
+            }
+        }
+    }
+}
+
+//12.
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int floorsNumber = int.Parse(Console.ReadLine());
+            int RoomsNumberOfOneFloor = int.Parse(Console.ReadLine());
+
+            for (int floor = floorsNumber; floor >= 1; floor--)
+            {
+                for (int i = 0; i < RoomsNumberOfOneFloor; i++)
+                {
+                    if (floorsNumber == floor)
+                    {
+                        Console.Write($"L{floor}{i} ");
+                    }
+                    else if (floor % 2 == 0)
+                    {
+                        Console.Write($"O{floor}{i} ");
+                    }
+                    else if (floor % 2 == 1)
+                    {
+                        Console.Write($"A{floor}{i} ");
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
+
+//13.
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int totalTickets = 0;
+            int allTickets = 0;
+            double occupancySallonPercent = 0;
+            double allStudentTicketsPercent = 0;
+            double allStandardTicketsPercent = 0;
+            double allKidTicketsPercent = 0;
+
+            string command = Console.ReadLine();
+            while (command != "Finish")
+            {
+                string movieName = (command);
+                int freePleaceInSallonForEachMovie = int.Parse(Console.ReadLine());
+
+                totalTickets = 0;
+
+                string typeOfTickets = Console.ReadLine();
+                while (typeOfTickets != "End")
+                {
+                    if (typeOfTickets == "student")
+                    {
+                        totalTickets++;
+                        allTickets++;
+                        allStudentTicketsPercent++;
+                    }
+                    else if (typeOfTickets == "standard")
+                    {
+                        totalTickets++;
+                        allTickets++;
+                        allStandardTicketsPercent++;
+                    }
+                    else if (typeOfTickets == "kid")
+                    {
+                        totalTickets++;
+                        allTickets++;
+                        allKidTicketsPercent++;
+                    }
+
+                    if (totalTickets == freePleaceInSallonForEachMovie)
+                    {
+                        Console.WriteLine($"{movieName} - {occupancySallonPercent = (totalTickets * 1.0) / (freePleaceInSallonForEachMovie * 1.0) * 100:F2}% full.");
+                        break;
+                    }
+                    typeOfTickets = Console.ReadLine();
+                }
+                if (typeOfTickets == "End")
+                {
+                    Console.WriteLine($"{movieName} - {occupancySallonPercent = (totalTickets * 1.0) / (freePleaceInSallonForEachMovie * 1.0) * 100:F2}% full.");
+                }
+
+
+                command = Console.ReadLine();
+            }
+            Console.WriteLine($"Total tickets: {allTickets}");
+            Console.WriteLine($"{allStudentTicketsPercent / (allTickets * 1.0) * 100:F2}% student tickets.");
+            Console.WriteLine($"{allStandardTicketsPercent / (allTickets * 1.0) * 100:F2}% standard tickets.");
+            Console.WriteLine($"{allKidTicketsPercent / (allTickets * 1.0) * 100:F2}% kids tickets.");
+        }
+    }
+}
+
