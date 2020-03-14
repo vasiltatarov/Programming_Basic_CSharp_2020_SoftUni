@@ -1,0 +1,247 @@
+//1
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            double kilogramsLemon = double.Parse(Console.ReadLine());
+            double kilogramsSugar = double.Parse(Console.ReadLine());
+            double littersWater = double.Parse(Console.ReadLine());
+
+            double lemonJuice = kilogramsLemon * 980 + littersWater * 1000 + kilogramsSugar * 0.30;
+            double cupOfJuice = Math.Floor(lemonJuice / 150);
+            double sum = cupOfJuice * 1.20;
+            Console.WriteLine($"All cups sold: {cupOfJuice}");
+            Console.WriteLine($"Money earned: {sum:F2}");
+        }
+    }
+}
+
+//2
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int budget = int.Parse(Console.ReadLine());
+            double priceOfBeachTowel = double.Parse(Console.ReadLine());
+            int discountPercent = int.Parse(Console.ReadLine());
+
+            double priceOfUmbrella = priceOfBeachTowel * 2 / 3;
+            double priceOfSlippers = priceOfUmbrella * 0.75;
+            double priceOfBeachBag = (priceOfBeachTowel + priceOfSlippers) * 1 / 3;
+
+            double sum = priceOfBeachTowel + priceOfUmbrella + priceOfSlippers + priceOfBeachBag;
+            sum -= sum * discountPercent / 100;
+            double sumLeft = Math.Abs(sum - budget);
+
+            if (budget >= sum)
+            {
+                Console.WriteLine($"Annie's sum is {sum:F2} lv. She has {sumLeft:F2} lv. left.");
+            }
+            else
+            {
+                Console.WriteLine($"Annie's sum is {sum:F2} lv. She needs {sumLeft:F2} lv. more.");
+            }
+        }
+    }
+}
+
+//3
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            string typeOfCruise = Console.ReadLine();
+            string typeOfCabin = Console.ReadLine();
+            int nights = int.Parse(Console.ReadLine());
+
+            double sumAllNight = 0;
+
+            if (typeOfCruise == "Mediterranean")
+            {
+                if (typeOfCabin == "standard cabin")
+                {
+                    sumAllNight = 27.50;
+                }
+                else if (typeOfCabin == "cabin with balcony")
+                {
+                    sumAllNight = 30.20;
+                }
+                else if (typeOfCabin == "apartment")
+                {
+                    sumAllNight = 40.50;
+                }
+            }
+            else if (typeOfCruise == "Adriatic")
+            {
+                if (typeOfCabin == "standard cabin")
+                {
+                    sumAllNight = 22.99;
+                }
+                else if (typeOfCabin == "cabin with balcony")
+                {
+                    sumAllNight = 25.00;
+                }
+                else if (typeOfCabin == "apartment")
+                {
+                    sumAllNight = 34.99;
+                }
+            }
+            else if (typeOfCruise == "Aegean")
+            {
+                if (typeOfCabin == "standard cabin")
+                {
+                    sumAllNight = 23.00;
+                }
+                else if (typeOfCabin == "cabin with balcony")
+                {
+                    sumAllNight = 26.60;
+                }
+                else if (typeOfCabin == "apartment")
+                {
+                    sumAllNight = 39.80;
+                }
+            }
+
+            sumAllNight *= nights * 4;
+
+            if (nights > 7)
+            {
+                Console.WriteLine($"Annie's holiday in the {typeOfCruise} sea costs {sumAllNight * 0.75:F2} lv.");
+            }
+            else
+            {
+                Console.WriteLine($"Annie's holiday in the {typeOfCruise} sea costs {sumAllNight:F2} lv.");
+            }
+        }
+    }
+}
+
+//4
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int moves = 0;
+            int diff = 0;
+            int numberOfPoints = int.Parse(Console.ReadLine());
+            while (numberOfPoints >= 0)
+            {
+                string targetSector = Console.ReadLine();
+                if (targetSector == "bullseye")
+                {
+                    moves++;
+                    Console.WriteLine($"Congratulations! You won the game with a bullseye in {moves} moves!");
+                    return;
+                }
+                int currentPoint = int.Parse(Console.ReadLine());
+
+                if (targetSector == "number section")
+                {
+                    numberOfPoints -= currentPoint;
+                    moves++;
+                    diff += currentPoint;
+                }
+                else if (targetSector == "double ring")
+                {
+                    numberOfPoints -= currentPoint * 2;
+                    moves++;
+                    diff += currentPoint * 2;
+                }
+                else if (targetSector == "triple ring")
+                {
+                    numberOfPoints -= currentPoint * 3;
+                    moves++;
+                    diff += currentPoint * 3;
+                }
+
+                if (numberOfPoints == 0)
+                {
+                    Console.WriteLine($"Congratulations! You won the game in {moves} moves!");
+                    return;
+                }
+            }
+            Console.WriteLine($"Sorry, you lost. Score difference: {Math.Abs(numberOfPoints)}.");
+        }
+    }
+}
+
+//5
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            string playerName = Console.ReadLine();
+            int playedGame = int.Parse(Console.ReadLine());
+
+            double allPoints = 0;
+
+            double volleyball = 0;
+            double tennis = 0;
+            double badminton = 0;
+
+            double volleyballGame = 0;
+            double tennisGame = 0;
+            double badmintonGame = 0;
+
+            for (int i = 0; i < playedGame; i++)
+            {
+                    string gameName = Console.ReadLine();
+                    int points = int.Parse(Console.ReadLine());
+
+                    if (gameName == "volleyball")
+                    {
+                        volleyball++;
+                        volleyballGame += points * 1.07;
+                    }
+                    else if (gameName == "tennis")
+                    {
+                        tennis++;
+                        tennisGame += points * 1.05;
+                    }
+                    else if (gameName == "badminton")
+                    {
+                        badminton++;
+                        badmintonGame += points * 1.02;
+                    }
+            }
+
+            double volleyballAvgPoints = Math.Floor(volleyballGame / volleyball);
+            double tennisAvgPoints = Math.Floor(tennisGame / tennis);
+            double badmintonAvgPoints = Math.Floor(badmintonGame / badminton);
+            allPoints = badmintonGame + volleyballGame + tennisGame;
+
+            if (badmintonAvgPoints >= 75 && tennisAvgPoints >= 75 && volleyballAvgPoints >= 75)
+            {
+                Console.WriteLine($"Congratulations, {playerName}! You won the cruise games with {Math.Floor(allPoints)} points.");
+            }
+            else
+            {
+                Console.WriteLine($"Sorry, {playerName}, you lost. Your points are only {Math.Floor(allPoints)}.");
+            }
+        }
+    }
+}
+
+
+  
+
