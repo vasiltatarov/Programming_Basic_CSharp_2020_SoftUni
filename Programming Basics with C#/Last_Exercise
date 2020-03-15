@@ -1,0 +1,236 @@
+//1
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int current = 1;
+            bool isBigger = false;
+
+            int n = int.Parse(Console.ReadLine());
+
+            for (int rows = 1; rows <= n; rows++)
+            {
+                for (int cols = 1; cols <= rows; cols++)
+                {
+                    if (current > n)
+                    {
+                        isBigger = true;
+                        break;
+                    }
+                    Console.Write(current + " ");
+                    current++;
+                }
+                if (isBigger)
+                {
+                    break;
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
+
+//2
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int n1 = int.Parse(Console.ReadLine());
+
+            for (int i = n; i <= n1; i++)
+            {
+                int oddSum = 0;
+                int evenSum = 0;
+                string currentNum = i.ToString();
+
+                for (int j = 0; j < currentNum.Length; j++)
+                {
+                    int currentDigit = int.Parse(currentNum[j].ToString());
+
+                    if (j % 2 == 0)
+                    {
+                        evenSum += currentDigit;
+                    }
+                    else
+                    {
+                        oddSum += currentDigit;
+                    }
+                }
+                if (oddSum == evenSum)
+                {
+                    Console.Write(i + " ");
+                }
+            }
+        }
+    }
+}
+
+//3
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int sumPrime = 0;
+            int sumNonPrime = 0;
+
+            string command = Console.ReadLine();
+            while (command != "stop")
+            {
+                int numbers = int.Parse(command);
+                if (numbers < 0)
+                {
+                    Console.WriteLine("Number is negative.");
+                    command = Console.ReadLine();
+                    continue;
+                }
+
+                int counter = 0;
+                for (int i = 1; i <= numbers; i++)
+                {
+                    if (numbers % i == 0)
+                    {
+                        counter++;
+                    }
+                }
+
+                if (counter == 2)
+                {
+                    sumPrime += numbers;
+                }
+                else
+                {
+                    sumNonPrime += numbers;
+                }
+
+                command = Console.ReadLine();
+            }
+            Console.WriteLine($"Sum of all prime numbers is: {sumPrime}");
+            Console.WriteLine($"Sum of all non prime numbers is: {sumNonPrime}");
+        }
+    }
+}
+
+
+//4
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            double averageGrade = 0;
+            double averageAllSum = 0;
+            double counter = 0;
+
+            int n = int.Parse(Console.ReadLine());
+            string command = Console.ReadLine();
+            while (command != "Finish")
+            {
+                averageGrade = 0;
+                string nameOfPresentation = (command);
+                for (int i = 1; i <= n; i++)
+                {
+                    double countGrades = double.Parse(Console.ReadLine());
+                    averageGrade += countGrades;
+                    averageAllSum += countGrades;
+                    counter++;
+                }
+                averageGrade /= n;
+                Console.WriteLine($"{nameOfPresentation} - {averageGrade:F2}.");
+
+                command = Console.ReadLine();
+            }
+            averageAllSum /= counter;
+
+            Console.WriteLine($"Student's final assessment is {averageAllSum:F2}.");
+        }
+    }
+}
+
+
+//5
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int l = int.Parse(Console.ReadLine());
+
+            int asciTablle = 96;
+
+            for (int i = 1; i <= n; i++)
+            {
+                for (int i1 = 1; i1 <= n; i1++)
+                {
+                    for (char i2 = 'a'; i2 <= asciTablle + l; i2++)
+                    {
+                        for (char i3 = 'a'; i3 <= asciTablle + l; i3++)
+                        {
+                            for (int i4 = 1; i4 <= n; i4++)
+                            {
+                                if (i4 > i && i4 > i1)
+                                {
+                                    Console.Write($"{i}{i1}{i2}{i3}{i4} ");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+//6
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= 9; i++)
+            {
+                for (int i1 = 1; i1 <= 9; i1++)
+                {
+                    for (int i2 = 1; i2 <= 9; i2++)
+                    {
+                        for (int i3 = 1; i3 <= 9; i3++)
+                        {
+                            if (n % i == 0 && n % i1 == 0 && n % i2 == 0 && n % i3 == 0)
+                            {
+                                Console.Write($"{i}{i1}{i2}{i3} ");
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
