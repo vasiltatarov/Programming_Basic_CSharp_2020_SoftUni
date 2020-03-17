@@ -1,0 +1,21 @@
+//PrimeOrNonPrime
+for (int i = 1; i <= n; i++)
+  {
+ if (n % i == 0)
+  {
+     counter++;
+  }
+  }
+ if (counter == 2)
+  {
+     // is prime
+  }
+ else
+  {
+      break;
+  }
+  
+  //Percentage
+  //percentage = (yourNumber / totalNumber) * 100;
+  //number = (percentage / 100) * totalNumber;
+  //($"Hearthstone - {Hearthstone * 1.0 / n * 100:F2}%");
