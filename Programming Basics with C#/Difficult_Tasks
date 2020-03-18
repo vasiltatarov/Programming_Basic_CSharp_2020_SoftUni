@@ -1,0 +1,88 @@
+//1
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string mostPowerfulWord = "";
+            double maxPower = 0;
+
+            string word = Console.ReadLine();
+            while (word != "End of words")
+            {
+                double allNum = 0;
+                for (int i = 0; i < word.Length; i++)
+                {
+                    allNum += word[i];
+                }
+                if (word[0] == 'a' || word[0] == 'e' || word[0] == 'i' || word[0] == 'o' || word[0] == 'y' || word[0] == 'u' ||
+                    word[0] == 'A' || word[0] == 'E' || word[0] == 'I' || word[0] == 'O' || word[0] == 'Y' || word[0] == 'U')
+                {
+                    allNum *= word.Length;
+                }
+                else
+                {
+                    Math.Floor(allNum /= word.Length);
+                }
+
+                if (allNum > maxPower)
+                {
+                    maxPower = allNum;
+                    mostPowerfulWord = word;
+                }
+
+                word = Console.ReadLine();
+            }
+            Console.WriteLine($"The most powerful word is {mostPowerfulWord} - {Math.Floor(maxPower)}");
+        }
+    }
+}
+
+//2
+using System;
+
+namespace P06_TripExpenses
+{
+    class P06_TripExpenses
+    {
+        static void Main(string[] args)
+        {
+            int bestScore = 0;
+            string winner = "";
+
+
+            string command = Console.ReadLine();
+            while (command != "Stop")
+            {
+                int currentPoint = 0;
+
+                for (int i = 0; i < command.Length; i++)
+                {
+                    int num = int.Parse(Console.ReadLine());
+
+                    if (num == command[i])
+                    {
+                        currentPoint += 10;
+                    }
+                    else
+                    {
+                        currentPoint += 2;
+                    }
+                }
+
+                if (currentPoint >= bestScore)
+                {
+                    bestScore = currentPoint;
+                    winner = command;
+                }
+
+                command = Console.ReadLine();
+            }
+            Console.WriteLine($"The winner is {winner} with {bestScore} points!");
+
+        }
+    }
+}
