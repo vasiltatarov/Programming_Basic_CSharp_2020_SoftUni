@@ -1,0 +1,117 @@
+//1
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int counter = 0;
+            string name = "";
+            int max = int.MinValue;
+
+            string movieName = Console.ReadLine();
+            while (movieName != "STOP")
+            {
+                counter++;
+                int sum = 0;
+                for (int i = 0; i < movieName.Length; i++)
+                {
+                    //char currentLetter = movieName[i];
+
+                    if (movieName[i] >= 97 && movieName[i] <= 122)
+                    {
+                        sum += movieName[i] - (movieName.Length * 2);
+                    }
+                    else if (movieName[i] >= 60 && movieName[i] <= 90)
+                    {
+                        sum += movieName[i] - movieName.Length;
+                    }
+                    else
+                    {
+                        sum += movieName[i];
+                    }
+                }
+
+                if (sum > max)
+                {
+                    max = sum;
+                    name = movieName;
+                }
+
+                if (counter == 7)
+                {
+                    Console.WriteLine($"The limit is reached.");
+                    Console.WriteLine($"The best movie for you is {name} with {max} ASCII sum.");
+                    return;
+                }
+                movieName = Console.ReadLine();
+            }
+            Console.WriteLine($"The best movie for you is {name} with {max} ASCII sum.");
+        }
+    }
+}
+
+//2
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double kidTickets = 0;
+            double standardickets = 0;
+            double studentTickets = 0;
+            double allTickets = 0;
+
+            string movieName = Console.ReadLine();
+            while (movieName != "Finish")
+            {
+                int freePleace = int.Parse(Console.ReadLine());
+                int currentAll = 0;
+                while (true)
+                {
+                    string typeOfTickets = Console.ReadLine();
+                    if (typeOfTickets == "student")
+                    {
+                        studentTickets++;
+                        allTickets++;
+                        currentAll++;
+                    }
+                    else if (typeOfTickets == "standard")
+                    {
+                        standardickets++;
+                        allTickets++;
+                        currentAll++;
+                    }
+                    else if (typeOfTickets == "kid")
+                    {
+                        kidTickets++;
+                        allTickets++;
+                        currentAll++;
+                    }
+
+                    if (typeOfTickets == "End")
+                    {
+                        Console.WriteLine($"{movieName} - {currentAll / (freePleace * 1.0) * 100:F2}% full.");
+                        break;
+                    }
+
+                    if (freePleace == currentAll)
+                    {
+                        Console.WriteLine($"{movieName} - {currentAll / freePleace * 100:F2}% full.");
+                        break;
+                    }
+                }
+                movieName = Console.ReadLine();
+            }
+            Console.WriteLine($"Total tickets: {allTickets}");
+            Console.WriteLine($"{studentTickets / allTickets * 100:F2}% student tickets.");
+            Console.WriteLine($"{standardickets / allTickets * 100:F2}% standard tickets.");
+            Console.WriteLine($"{kidTickets / allTickets * 100:F2}% kids tickets.");
+        }
+    }
+}
