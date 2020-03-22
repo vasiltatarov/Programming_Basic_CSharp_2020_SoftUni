@@ -19,3 +19,44 @@ for (int i = 1; i <= n; i++)
   //percentage = (yourNumber / totalNumber) * 100;
   //number = (percentage / 100) * totalNumber;
   //($"Hearthstone - {Hearthstone * 1.0 / n * 100:F2}%");
+  
+  //ASCII and string.Length
+  int counter = 0;
+  string name = "";
+  int max = int.MinValue;
+
+  string movieName = Console.ReadLine();
+  while (movieName != "STOP")
+   {
+    counter++;
+    int sum = 0;
+  for (int i = 0; i < movieName.Length; i++)
+   {
+    //char currentLetter = movieName[i];
+
+  if (movieName[i] >= 97 && movieName[i] <= 122)
+   {
+    sum += movieName[i] - (movieName.Length * 2);
+   }
+  else if (movieName[i] >= 60 && movieName[i] <= 90)
+   {
+    sum += movieName[i] - movieName.Length;
+   }
+  else
+   {
+    sum += movieName[i]; 
+   }
+   }
+
+  if (sum > max)
+   {
+    max = sum;
+    name = movieName;
+   }
+   
+   //
+   string buyProduct = Console.ReadLine();
+   int productLength = buyProduct.Length;
+   int ticketSum = buyProduct[0] + buyProduct[1];
+   int otherSum = buyProduct[0];
+
