@@ -60,3 +60,9 @@ for (int i = 1; i <= n; i++)
    int ticketSum = buyProduct[0] + buyProduct[1];
    int otherSum = buyProduct[0];
 
+//FIND NUMBER POSITION
+ int number = int.Parse(Console.ReadLine()); //324
+ 
+ int number1 = number % 10;  //last number
+ int number2 = number % 100 / 10;  // middle number
+ int number3 = number / 100;   //first number
