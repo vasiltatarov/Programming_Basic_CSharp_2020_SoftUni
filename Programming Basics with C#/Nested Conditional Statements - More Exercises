@@ -133,3 +133,85 @@ namespace x_y
         }
     }
 }
+
+//5
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            double p1 = 0;
+            double p2 = 0;
+            double p3 = 0;
+
+            for (int i = 1; i <= n; i++)
+            {
+                int num = int.Parse(Console.ReadLine());
+
+                if (num % 2 == 0)
+                {
+                    p1++;
+                }
+                if (num % 3 == 0)
+                {
+                    p2++;
+                }
+                if (num % 4 == 0)
+                {
+                    p3++;
+                }
+            }
+            Console.WriteLine($"{p1 / n * 100:F2}%");
+            Console.WriteLine($"{p2 / n * 100:F2}%");
+            Console.WriteLine($"{p3 / n * 100:F2}%");
+        }
+    }
+}
+
+//6
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int daysCounter = 0;
+            
+            double allSum = 0;
+
+            int countDays = int.Parse(Console.ReadLine());
+            int countHours = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= countDays; i++)
+            {
+                daysCounter++;
+                double daySum = 0;
+                for (int i2 = 1; i2 <= countHours; i2++)
+                {
+                    if (i % 2 == 0 && i2 % 2 == 1)
+                    {
+                        daySum += 2.50;
+                    }
+                    else if (i % 2 == 1 && i2 % 2 == 0)
+                    {
+                        daySum += 1.25;
+                    }
+                    else
+                    {
+                        daySum += 1;
+                    }
+                }
+                allSum += daySum;
+                Console.WriteLine($"Day: {daysCounter} - {daySum:F2} leva");
+            }
+
+            Console.WriteLine($"Total: {allSum:f2} leva");
+        }
+    }
+}
