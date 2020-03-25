@@ -305,6 +305,59 @@ namespace example15_02
     }
 }
 
+//4
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int scoreOfFirst = 0;
+            int scoreOfSecond = 0;
+
+            string firstPlayer = (Console.ReadLine());
+            string secondPlayer = (Console.ReadLine());
+            string command = Console.ReadLine();
+            while (command != "End of game")
+            {
+                int cardOfFirstPlayer = int.Parse(command);
+                int cardOfSecondPlayer = int.Parse(Console.ReadLine());
+
+                if (cardOfFirstPlayer > cardOfSecondPlayer)
+                {
+                    scoreOfFirst += cardOfFirstPlayer - cardOfSecondPlayer;
+                }
+                else if (cardOfSecondPlayer > cardOfFirstPlayer)
+                {
+                    scoreOfSecond += cardOfSecondPlayer - cardOfFirstPlayer;
+                }
+                else if (cardOfFirstPlayer == cardOfSecondPlayer)
+                {
+                    cardOfFirstPlayer = int.Parse(Console.ReadLine());
+                    cardOfSecondPlayer = int.Parse(Console.ReadLine());
+
+                    if (cardOfFirstPlayer > cardOfSecondPlayer)
+                    {
+                        Console.WriteLine($"Number wars!");
+                        Console.WriteLine($"{firstPlayer} is winner with {scoreOfFirst} points");
+                        return;
+                    }
+                    else if (cardOfSecondPlayer > cardOfFirstPlayer)
+                    {
+                        Console.WriteLine($"Number wars!");
+                        Console.WriteLine($"{secondPlayer} is winner with {scoreOfSecond} points");
+                        return;
+                    }
+                }
+                command = Console.ReadLine();
+            }
+            Console.WriteLine($"{firstPlayer} has {scoreOfFirst} points");
+            Console.WriteLine($"{secondPlayer} has {scoreOfSecond} points");
+        }
+    }
+}
 
   
 
