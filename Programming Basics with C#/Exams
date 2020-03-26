@@ -359,5 +359,114 @@ namespace example15_02
     }
 }
 
-  
+//5
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int backCount = 0;
+            int chestCount = 0;
+            int legsCount = 0;
+            int absCount = 0;
+            int psCount = 0;
+            int prCount = 0;
+            double peopleWork = 0;
+            double peopleForProtein = 0;
+
+            int countVisiters = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= countVisiters; i++)
+            {
+                string fitnessActive = Console.ReadLine();
+
+                if (fitnessActive == "Back")
+                {
+                    backCount++;
+                    peopleWork++;
+                }
+                else if (fitnessActive == "Chest")
+                {
+                    chestCount++;
+                    peopleWork++;
+                }
+                else if (fitnessActive == "Legs")
+                {
+                    legsCount++;
+                    peopleWork++;
+                }
+                else if (fitnessActive == "Abs")
+                {
+                    absCount++;
+                    peopleWork++;
+                }
+                else if (fitnessActive == "Protein shake")
+                {
+                    psCount++;
+                    peopleForProtein++;
+                }
+                else if (fitnessActive == "Protein bar")
+                {
+                    prCount++;
+                    peopleForProtein++;
+                }
+            }
+            Console.WriteLine($"{backCount} - back");
+            Console.WriteLine($"{chestCount} - chest");
+            Console.WriteLine($"{legsCount} - legs");
+            Console.WriteLine($"{absCount} - abs");
+            Console.WriteLine($"{psCount} - protein shake");
+            Console.WriteLine($"{prCount} - protein bar");
+            Console.WriteLine($"{peopleWork / countVisiters * 100:F2}% - work out");
+            Console.WriteLine($"{peopleForProtein / countVisiters * 100:F2}% - protein");
+        }
+    }
+}
+
+//6
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double win = 0;
+            double lose = 0;
+            double allGames = 0;
+
+            string command = Console.ReadLine();
+            while (command != "End of tournaments")
+            {
+                string tournamentName = (command);
+                int countMatch = int.Parse(Console.ReadLine());
+                allGames += countMatch;
+                for (int i = 1; i <= countMatch; i++)
+                {
+                    int scoreFromDesiTeam = int.Parse(Console.ReadLine());
+                    int scoreFromOtherTeam = int.Parse(Console.ReadLine());
+
+                    int diff = Math.Abs(scoreFromDesiTeam - scoreFromOtherTeam);
+
+                    if (scoreFromDesiTeam > scoreFromOtherTeam)
+                    {
+                        win++;
+                        Console.WriteLine($"Game {i} of tournament {tournamentName}: win with {diff} points.");
+                    }
+                    else if (scoreFromOtherTeam > scoreFromDesiTeam)
+                    {
+                        lose++;
+                        Console.WriteLine($"Game {i} of tournament {tournamentName}: lost with {diff} points.");
+                    }
+                }
+                command = Console.ReadLine();
+            }
+            Console.WriteLine($"{win / allGames * 100:F2}% matches win");
+            Console.WriteLine($"{lose / allGames * 100:F2}% matches lost");
+        }
+    }
+}  
 
