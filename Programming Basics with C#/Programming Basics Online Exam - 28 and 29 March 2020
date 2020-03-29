@@ -1,0 +1,265 @@
+//1
+using System;
+
+namespace MyExam_28_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int countBitCoins = int.Parse(Console.ReadLine());
+            double countIyna = double.Parse(Console.ReadLine());
+            double komisionna = double.Parse(Console.ReadLine());
+
+            double bitCoinToLeva = countBitCoins * 1168;
+            double iynaToDollar = countIyna * 0.15;
+            double dollarLeva = iynaToDollar * 1.76;
+            double leveToEuro = (bitCoinToLeva + dollarLeva) / 1.95;
+            double komissionna = leveToEuro * (komisionna * 1 / 100);
+            double sum = leveToEuro - komissionna;
+            Console.WriteLine($"{sum:F2}");
+
+
+
+        }
+    }
+}
+
+//2
+using System;
+
+namespace MyExam_28_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int minutesWalkOnDay = int.Parse(Console.ReadLine());
+            int countWalksOnDay = int.Parse(Console.ReadLine());
+            int calloriesEatOfCat = int.Parse(Console.ReadLine());
+
+            double AllWalk = minutesWalkOnDay * countWalksOnDay;
+            double allDecrease = AllWalk * 5;
+            double callories = (calloriesEatOfCat * 1.0) * 0.5;
+
+            if (allDecrease >= callories)
+            {
+                Console.WriteLine($"Yes, the walk for your cat is enough. Burned calories per day: {allDecrease}.");
+            }
+            else
+            {
+                Console.WriteLine($"No, the walk for your cat is not enough. Burned calories per day: {allDecrease}.");
+            }
+        }
+    }
+}
+
+//3
+using System;
+
+namespace MyExam_28_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double sumWeHave = double.Parse(Console.ReadLine());
+            char sex = char.Parse(Console.ReadLine());
+            int age = int.Parse(Console.ReadLine());
+            string sport = Console.ReadLine();
+
+            double cost = 0;
+
+            if (sex == 'm')
+            {
+                if (sport == "Gym")
+                {
+                    cost = 42;
+                }
+                else if (sport == "Boxing")
+                {
+                    cost = 41;
+                }
+                else if (sport == "Yoga")
+                {
+                    cost = 45;
+                }
+                else if (sport == "Zumba")
+                {
+                    cost = 34;
+                }
+                else if (sport == "Dances")
+                {
+                    cost = 51;
+                }
+                else if (sport == "Pilates")
+                {
+                    cost = 39;
+                }
+            }
+            else if (sex == 'f')
+            {
+                if (sport == "Gym")
+                {
+                    cost = 35;
+                }
+                else if (sport == "Boxing")
+                {
+                    cost = 37;
+                }
+                else if (sport == "Yoga")
+                {
+                    cost = 42;
+                }
+                else if (sport == "Zumba")
+                {
+                    cost = 31;
+                }
+                else if (sport == "Dances")
+                {
+                    cost = 53;
+                }
+                else if (sport == "Pilates")
+                {
+                    cost = 37;
+                }
+            }
+
+            if (age <= 19)
+            {
+                cost *= 0.80;
+            }
+
+            if (sumWeHave >= cost)
+            {
+                Console.WriteLine($"You purchased a 1 month pass for {sport}.");
+            }
+            else
+            {
+                Console.WriteLine($"You don't have enough money! You need ${cost - sumWeHave:F2} more.");
+            }
+        }
+    }
+}
+
+//4
+using System;
+
+namespace MyExam_28_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double musala = 0;
+            double monblan = 0;
+            double kilimandjaro = 0;
+            double k2 = 0;
+            double everest = 0;
+            double allPeople = 0;
+
+
+            int countOfGroups = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= countOfGroups; i++)
+            {
+                int countPeopleInGroup = int.Parse(Console.ReadLine());
+                allPeople += countPeopleInGroup;
+
+                if (countPeopleInGroup <= 5)
+                {
+                    musala += countPeopleInGroup;
+                }
+                else if (countPeopleInGroup >= 6 && countPeopleInGroup <= 12)
+                {
+                    monblan += countPeopleInGroup;
+                }
+                else if (countPeopleInGroup >= 13 && countPeopleInGroup <= 25)
+                {
+                    kilimandjaro += countPeopleInGroup;
+                }
+                else if (countPeopleInGroup >= 26 && countPeopleInGroup <= 40)
+                {
+                    k2 += countPeopleInGroup;
+                }
+                else if (countPeopleInGroup >= 41)
+                {
+                    everest += countPeopleInGroup;
+                }
+            }
+            Console.WriteLine($"{musala / allPeople * 100:F2}%");
+            Console.WriteLine($"{monblan / allPeople * 100:F2}%");
+            Console.WriteLine($"{kilimandjaro / allPeople * 100:F2}%");
+            Console.WriteLine($"{k2 / allPeople * 100:F2}%");
+            Console.WriteLine($"{everest / allPeople * 100:F2}%");
+
+        }
+    }
+}
+
+//5
+using System;
+
+namespace MyExam_28_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double allEatFood = 0;
+
+            int boughtFoodForDog = int.Parse(Console.ReadLine());
+            double boughtFoodForDogInGrams = boughtFoodForDog * 1000;
+            string command = Console.ReadLine();
+            while (command != "Adopted")
+            {
+                int foodForEveryEatingInGrams = int.Parse(command);
+                allEatFood += foodForEveryEatingInGrams;
+
+                command = Console.ReadLine();
+            }
+
+            if (boughtFoodForDogInGrams >= allEatFood)
+            {
+                Console.WriteLine($"Food is enough! Leftovers: {boughtFoodForDogInGrams - allEatFood} grams.");
+            }
+            else
+            {
+                Console.WriteLine($"Food is not enough. You need {allEatFood - boughtFoodForDogInGrams} grams more.");
+            }
+        }
+    }
+}
+
+//6
+using System;
+
+namespace MyExam_28_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double allEatFood = 0;
+
+            int boughtCountFoodForCat = int.Parse(Console.ReadLine());
+            double boughtFoodForCatInGrams = boughtCountFoodForCat * 1000;
+            string command = Console.ReadLine();
+            while (command != "Adopted")
+            {
+                int foodForEveryEatingInGrams = int.Parse(command);
+                allEatFood += foodForEveryEatingInGrams;
+
+                command = Console.ReadLine();
+            }
+
+            if (boughtFoodForCatInGrams >= allEatFood)
+            {
+                Console.WriteLine($"Food is enough! Leftovers: {boughtFoodForCatInGrams - allEatFood} grams.");
+            }
+            else
+            {
+                Console.WriteLine($"Food is not enough. You need {allEatFood - boughtFoodForCatInGrams} grams more.");
+            }
+        }
+    }
+}
