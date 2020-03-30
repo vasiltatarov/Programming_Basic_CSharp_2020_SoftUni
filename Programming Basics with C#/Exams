@@ -470,3 +470,41 @@ namespace example15_02
     }
 }  
 
+//6
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int max = int.MinValue;
+            string nameOfWinner = String.Empty;
+
+            int countKozunacs = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= countKozunacs; i++)
+            {
+                int currentPoints = 0;
+                string kozunacsManMade = Console.ReadLine();
+                string command = Console.ReadLine();
+                while (command != "Stop")
+                {
+                    int gradeForKozunacs = int.Parse(command);
+                    currentPoints += gradeForKozunacs;
+                    command = Console.ReadLine();
+                }
+
+                Console.WriteLine($"{kozunacsManMade} has {currentPoints} points.");
+
+                if (max < currentPoints)
+                {
+                    max = currentPoints;
+                    nameOfWinner = kozunacsManMade;
+                    Console.WriteLine($"{nameOfWinner} is the new number 1!");
+                }
+            }
+            Console.WriteLine($"{nameOfWinner} won competition with {max} points!");
+        }
+    }
+}
