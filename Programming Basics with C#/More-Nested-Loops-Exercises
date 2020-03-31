@@ -202,3 +202,43 @@ namespace example15_02
     }
 }
 
+//8
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            int stotici = int.Parse(Console.ReadLine());
+            int desetici = int.Parse(Console.ReadLine());
+            int edinici = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= stotici; i++)
+            {
+                for (int i1 = 2; i1 <= desetici; i1++)
+                {
+                    for (int i2 = 1; i2 <= edinici; i2++)
+                    {
+                        int count = 0;
+                        for (int i3 = 1; i3 <= desetici; i3++)
+                        {
+                            if (i1 % i3 == 0)
+                            {
+                                count++;
+                            }
+                        }
+                        if (i % 2 == 0 && i2 % 2 == 0 && count == 2)
+                        {
+                            Console.Write($"{i} {i1} {i2}");
+                            Console.WriteLine();
+                            count = 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
