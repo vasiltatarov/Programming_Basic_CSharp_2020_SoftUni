@@ -515,3 +515,27 @@ namespace P06_TripExpenses
     }
 }
 
+using System;
+
+namespace example15_02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var n = int.Parse(Console.ReadLine());
+            var n1 = int.Parse(Console.ReadLine());
+
+            if (n1 > 10)
+            {
+                Console.WriteLine($"{n} X {n1} = {n * n1}");
+                return;
+            }
+
+            for (int i = n1; i <= 10; i++)
+            {
+                Console.WriteLine($"{n} X {i} = {n * i}");
+            }
+        }
+    }
+}
