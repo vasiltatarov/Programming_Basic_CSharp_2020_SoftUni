@@ -92,3 +92,32 @@ for (int i = username.Length - 1; i >= 0; i--)
    reversedPassword += username[i];
  }
 Console.WriteLine(reversedPassword);
+
+//FIND NUMBER POSITION AND FIND FACTURIAL
+            int number = int.Parse(Console.ReadLine());
+            int copyNumber = number;
+            int sum = 0;
+
+            while (copyNumber != 0)
+            {
+                int currentDigit = copyNumber % 10; //Num Position
+
+                int currentFacturial = 1;
+
+                for (int i = 1; i <= currentDigit; i++)
+                {
+                    currentFacturial *= i;
+                }
+                sum += currentFacturial;
+
+                copyNumber /= 10;
+            }
+
+            if (sum == number)
+            {
+                Console.WriteLine("yes");
+            }
+            else
+            {
+                Console.WriteLine("no");
+            }
