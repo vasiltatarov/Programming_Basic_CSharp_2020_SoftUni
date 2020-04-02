@@ -83,3 +83,12 @@ for (int i = 1; i <= n; i++)
  int secondnum = n % 1000 / 100;  //2
  int thirdNum = n % 100 / 10;  //4
  int fourthNum = n % 10;   //5
+
+//Reversed String
+string username = Console.ReadLine();
+string reversedPassword = "";
+for (int i = username.Length - 1; i >= 0; i--)
+ {
+   reversedPassword += username[i];
+ }
+Console.WriteLine(reversedPassword);
