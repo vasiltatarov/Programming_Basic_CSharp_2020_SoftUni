@@ -1,0 +1,30 @@
+var command = Console.ReadLine();
+            while (command != "END")
+            {
+                var input = (command);
+                int valueInt;
+                float valueFloat;
+                char ischar;
+                bool isBool;
+                if (int.TryParse(input, out valueInt)) // Try to parse the string as an integer
+                {
+                    Console.WriteLine($"{input} is integer type");
+                }
+                else if (float.TryParse(input, out valueFloat))
+                {
+                    Console.WriteLine($"{input} is floating point type");
+                }
+                else if (char.TryParse(input, out ischar))
+                {
+                    Console.WriteLine($"{input} is character type");
+                }
+                else if (bool.TryParse(input, out isBool))
+                {
+                    Console.WriteLine($"{input} is boolean type");
+                }
+                else
+                {
+                    Console.WriteLine($"{input} is string type");
+                }
+                command = Console.ReadLine();
+            }
