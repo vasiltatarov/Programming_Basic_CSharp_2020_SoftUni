@@ -1,0 +1,29 @@
+var n = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= n; i++)
+            {
+                string[] StringArray = new String[2];
+                StringArray = Console.ReadLine().Split(" ", 2);
+
+                long leftDigits = long.Parse(StringArray[0]);
+                long rightDigits = long.Parse(StringArray[1]);
+                long digitsLeftSum = 0;
+                long digitsRightSum = 0;
+
+                while (leftDigits > 0 || rightDigits > 0)
+                {
+                    digitsLeftSum += leftDigits % 10;
+                    leftDigits /= 10;
+
+                    digitsRightSum += rightDigits % 10;
+                    rightDigits /= 10;
+                }
+
+                if (digitsLeftSum > digitsRightSum)
+                {
+                    Console.WriteLine(digitsLeftSum);
+                }
+                else
+                {
+                    Console.WriteLine(digitsRightSum);
+                }
+            }
